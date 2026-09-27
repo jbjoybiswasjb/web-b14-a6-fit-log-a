@@ -1,7 +1,7 @@
 import { Workout } from "@/types/workout";
 
 const API_URL_FOR_WORKOUTS = "https://api.api-store.workers.dev/api/fitlog";
-const API_URL_FOR_WORKOUT = "https://api.api-store.workers.dev/api/fitlog/:id";
+const API_URL_FOR_WORKOUT = "https://api.api-store.workers.dev/api/fitlog";
 
 
 // Full workouts data fetch.

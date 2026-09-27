@@ -5,13 +5,17 @@ import Logo from "../../../public/images/logo.png";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useFitLog } from "@/context/FitLogContext";
 
 export interface NavbarProps {
     planCount: number;
     savedCount: number;
 }
 
+
 const Navbar = ({ planCount = 0, savedCount = 0 }: NavbarProps) => {
+    const { plan, saved } = useFitLog();
+    console.log(plan, saved);
     const pathname = usePathname();
 
     const isWorkoutActive = pathname === "/";

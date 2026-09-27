@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import { useFitLog } from "@/context/FitLogContext";
 import { Workout } from "@/types/workout";
-import WorkoutDetails from "@/components/WorkOutDetails";
+import WorkoutDetails from "@/components/WorkoutDetails";
 
 const WorkoutDetailsClient = ({
     workout,

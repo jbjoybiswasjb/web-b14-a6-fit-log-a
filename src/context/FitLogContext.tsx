@@ -43,16 +43,17 @@ export const FitLogProvider = ({
     useEffect(() => {
         const storedPlan = localStorage.getItem("fitlog-plan");
         const storedSaved = localStorage.getItem("fitlog-saved");
+        queueMicrotask(() => {
+            if (storedPlan) {
+                setPlan(JSON.parse(storedPlan));
+            }
 
-        if (storedPlan) {
-            setPlan(JSON.parse(storedPlan));
-        }
+            if (storedSaved) {
+                setSaved(JSON.parse(storedSaved));
+            }
 
-        if (storedSaved) {
-            setSaved(JSON.parse(storedSaved));
-        }
-
-        setMounted(true);
+            setMounted(true);
+        });
     }, []);
 
     useEffect(() => {

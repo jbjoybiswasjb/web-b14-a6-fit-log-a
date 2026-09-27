@@ -7,15 +7,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useFitLog } from "@/context/FitLogContext";
 
-export interface NavbarProps {
-    planCount: number;
-    savedCount: number;
-}
-
-
-const Navbar = ({ planCount = 0, savedCount = 0 }: NavbarProps) => {
+const Navbar = () => {
     const { plan, saved } = useFitLog();
-    console.log(plan, saved);
     const pathname = usePathname();
 
     const isWorkoutActive = pathname === "/";
@@ -97,14 +90,14 @@ const Navbar = ({ planCount = 0, savedCount = 0 }: NavbarProps) => {
                         href="/my-plan"
                         className="rounded-full bg-[#ccff00] px-3 py-2 text-xs font-black text-black sm:px-4 sm:text-sm"
                     >
-                        Plan <span>{planCount}</span>
+                        Plan <span>{plan?.length}</span>
                     </Link>
 
                     <Link
                         href="/my-plan"
                         className="rounded-full border border-white/30 px-3 py-2 text-xs font-black text-white sm:px-4 sm:text-sm"
                     >
-                        Saved <span>{savedCount}</span>
+                        Saved <span>{saved?.length}</span>
                     </Link>
                 </div>
 

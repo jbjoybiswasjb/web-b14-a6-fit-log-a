@@ -4,17 +4,17 @@ import Image from "next/image";
 import { Workout } from "@/types/workout";
 import { CalendarPlus, Bookmark } from 'lucide-react';
 
-interface WorkOutDetailsProps {
+interface WorkoutDetailsProps {
     workout: Workout;
     onAddToPlan: () => void;
     onSaveForLater: () => void;
 }
 
-const WorkOutDetails = ({ 
+const WorkoutDetails = ({ 
     workout,
     onAddToPlan,
     onSaveForLater,
-}: WorkOutDetailsProps) => {
+}: WorkoutDetailsProps) => {
 
 
     return (
@@ -198,4 +198,4 @@ const Spec = ({
     );
 };
 
-export default WorkOutDetails;
+export default WorkoutDetails;

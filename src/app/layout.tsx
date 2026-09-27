@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <FitLogProvider>
           <header>
-            <Navbar planCount={0} savedCount={0}></Navbar>
+            <Navbar></Navbar>
           </header>
           <main>
             <div>{children}</div>

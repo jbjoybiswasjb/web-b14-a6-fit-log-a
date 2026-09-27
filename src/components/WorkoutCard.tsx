@@ -11,9 +11,8 @@ interface WorkoutCardProps {
 const WorkoutCard = ({
     workout,
 }: WorkoutCardProps) => {
+    
     const {id, name, image, equipment, duration, caloriesBurned, rating, muscleGroups} = workout;
-
-    console.log(caloriesBurned);
 
     return (
         <Link

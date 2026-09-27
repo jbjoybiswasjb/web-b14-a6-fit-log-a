@@ -35,7 +35,7 @@ const MyPlanCard = ({
             </div>
 
             {/* Content */}
-            <div className="flex flex-1 flex-col">
+            <div className="flex flex-1 justify-center flex-col">
 
                 <div className="flex flex-col justify-between gap-3 sm:flex-row">
 
@@ -51,13 +51,36 @@ const MyPlanCard = ({
 
                     </div>
 
-                    <button
-                        type="button"
-                        onClick={() => onRemove(workout.id)}
-                        className="self-start text-xl text-gray-500 transition hover:text-red-400"
-                    >
-                        ×
-                    </button>
+                    {/* Buttons */}
+                    <div className="mt-5 flex flex-wrap gap-3">
+
+                        <Link
+                            href={`/workout/${workout.id}`}
+                            className="rounded-full border border-white/20 px-4 py-2 text-xs font-bold"
+                        >
+                            View Details
+                        </Link>
+
+                        {!saved && onDone && (
+                            <button
+                                type="button"
+                                onClick={() => onDone(workout.id)}
+                                className="rounded-full bg-[#ccff00] px-4 py-2 text-xs font-black text-black"
+                            >
+                                ✓ Mark as Done
+                            </button>
+                        )}
+
+                        {/* Remove button. */}
+                        <button
+                            type="button"
+                            onClick={() => onRemove(workout.id)}
+                            className="self-start text-xl text-gray-500 transition hover:text-red-400"
+                        >
+                            ×
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -78,27 +101,7 @@ const MyPlanCard = ({
 
                 </div>
 
-                {/* Buttons */}
-                <div className="mt-5 flex flex-wrap gap-2">
 
-                    <Link
-                        href={`/workout/${workout.id}`}
-                        className="rounded-full border border-white/20 px-4 py-2 text-xs font-bold"
-                    >
-                        View Details
-                    </Link>
-
-                    {!saved && onDone && (
-                        <button
-                            type="button"
-                            onClick={() => onDone(workout.id)}
-                            className="rounded-full bg-[#ccff00] px-4 py-2 text-xs font-black text-black"
-                        >
-                            ✓ Mark as Done
-                        </button>
-                    )}
-
-                </div>
 
             </div>
 

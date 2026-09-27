@@ -52,7 +52,7 @@ const MyPlanCard = ({
                     </div>
 
                     {/* Buttons */}
-                    <div className="mt-5 flex flex-wrap gap-3">
+                    <div className="mt-5 flex items-center flex-wrap gap-3">
 
                         <Link
                             href={`/workout/${workout.id}`}
@@ -75,7 +75,7 @@ const MyPlanCard = ({
                         <button
                             type="button"
                             onClick={() => onRemove(workout.id)}
-                            className="self-start text-xl text-gray-500 transition hover:text-red-400"
+                            className="btn bg-transparent border-none shadow-none self-start text-3xl text-gray-500 transition hover:text-red-400"
                         >
                             ×
                         </button>

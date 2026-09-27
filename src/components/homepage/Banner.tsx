@@ -5,10 +5,10 @@ import Link from "next/link";
 const Banner = () => {
     return (
         <section className="bg-[#080808] text-white">
-            <div className="mx-auto grid max-w-7xl items-center px-4 py-16 md:px-6 lg:grid-cols-3 lg:py-24">
+            <div className="mx-auto grid gap-10 md:gap-0 max-w-7xl items-center px-4 py-16 md:px-6 lg:grid-cols-3 lg:py-24">
 
                 {/* Banner Content. */}
-                <div className="col-span-2">
+                <div className="md:col-span-2">
                     <p className="mb-5 text-xs font-black tracking-[0.3em] text-[#ccff00]">
                         WORKOUT LIBRARY
                     </p>
@@ -34,7 +34,7 @@ const Banner = () => {
                 </div>
 
                 {/* Hero Image. */}
-                <div className="relative overflow-hidden rounded-2xl flex justify-end items-center">
+                <div className="relative overflow-hidden rounded-2xl flex justify-center md:justify-end items-center">
                     <Image
                         src={BannerImg}
 

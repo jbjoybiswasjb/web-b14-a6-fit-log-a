@@ -70,7 +70,9 @@ const Navbar = ({ planCount = 0, savedCount = 0 }: NavbarProps) => {
                                     src={Logo}
                                     alt="Workout"
                                 />
-                                <span className="btn btn-ghost text-xl text-white">FITLOG</span>
+                                <span className="btn font-extrabold btn-ghost text-xl text-white">FIT
+                                    <span className="text-[#ccff00]">LOG</span>
+                                </span>
                             </div>
                         </Link>
                     </div>

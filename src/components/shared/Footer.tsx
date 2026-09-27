@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "../../public/images/logo.png";
+import Logo from "../../../public/images/logo.png";
 
 const Footer = () => {
     return (
@@ -17,7 +17,7 @@ const Footer = () => {
                         />
                     </span>
 
-                    <span className="text-xl font-black">
+                    <span className="text-xl font-normal">
                         FIT<span className="text-[#ccff00]">LOG</span>
                     </span>
                 </div>

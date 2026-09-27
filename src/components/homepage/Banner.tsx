@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BannerImg from "../../../public/images/banner.png";
+import Link from "next/link";
 
 const Banner = () => {
     return (
@@ -23,13 +24,13 @@ const Banner = () => {
                         lock it into todays plan, and watch the weeks work add up.
                     </p>
 
-                    <a
-                        href="#library"
+                    <Link
+                        href={"/library"}
                         className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#ccff00] px-6 py-3 text-sm font-black text-black transition hover:scale-105"
                     >
                         BROWSE WORKOUTS
                         <span className="text-lg">→</span>
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Hero Image. */}

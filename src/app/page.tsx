@@ -1,9 +1,11 @@
-import React from 'react';
+import Banner from '@/components/homepage/Banner';
+import Library from '@/components/Library';
 
 const page = () => {
   return (
     <div>
-      Main Page
+      <div><Banner></Banner></div>
+      <div><Library></Library></div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import EmptyState from "@/components/EmptyState";
 import MyPlanCard from "@/components/MyPlanCard";
 
 import { useFitLog } from "@/context/FitLogContext";
+import SortDropdown from "@/components/SortDropdown";
 
 const MyPlanPage = () => {
     const {
@@ -15,6 +16,9 @@ const MyPlanPage = () => {
         removeFromSaved,
         markAsDone,
     } = useFitLog();
+
+    const [sortBy, setSortBy] =
+        useState("duration");
 
     const [activeTab, setActiveTab] =
         useState<"plan" | "saved">("plan");
@@ -34,6 +38,24 @@ const MyPlanPage = () => {
         (total, workout) =>
             total + workout.caloriesBurned,
         0
+    );
+
+    const sortedCurrentList = [...currentList].sort(
+        (a, b) => {
+            if (sortBy === "duration") {
+                return a.duration - b.duration;
+            }
+
+            if (sortBy === "calories") {
+                return a.caloriesBurned - b.caloriesBurned;
+            }
+
+            if (sortBy === "rating") {
+                return b.rating - a.rating;
+            }
+
+            return 0;
+        }
     );
 
     return (
@@ -78,34 +100,55 @@ const MyPlanPage = () => {
 
                 </div>
 
-                {/* Tabs */}
-                <div className="mt-12 flex border-b border-white/10">
 
-                    <button
-                        onClick={() =>
-                            setActiveTab("plan")
-                        }
-                        className={`px-6 py-4 text-sm font-black ${activeTab === "plan"
+                {/* Tabs. */}
+                <div className="mt-12 flex justify-between border-b border-white/10">
+
+                    <div className="flex">
+                        <button
+                            onClick={() =>
+                                setActiveTab("plan")
+                            }
+                            className={`px-6 py-4 text-sm font-black ${activeTab === "plan"
                                 ? "border-b-2 border-[#ccff00] text-[#ccff00]"
                                 : "text-gray-500"
-                            }`}
-                    >
-                        TODAYS PLAN
-                    </button>
+                                }`}
+                        >
+                            TODAYS PLAN
+                        </button>
 
-                    <button
-                        onClick={() =>
-                            setActiveTab("saved")
-                        }
-                        className={`px-6 py-4 text-sm font-black ${activeTab === "saved"
+                        <button
+                            onClick={() =>
+                                setActiveTab("saved")
+                            }
+                            className={`px-6 py-4 text-sm font-black ${activeTab === "saved"
                                 ? "border-b-2 border-[#ccff00] text-[#ccff00]"
                                 : "text-gray-500"
-                            }`}
-                    >
-                        SAVED
-                    </button>
+                                }`}
+                        >
+                            SAVED
+                        </button>
+                    </div>
+
+
+                    {/* Sort Drop Down Added. */}
+                    <div className="flex gap-3 items-center">
+                        <p className="text-sm md:text-xl font-bold uppercase text-gray-300">
+                            Sort By
+                        </p>
+
+                        <div>
+                            <SortDropdown
+                                value={sortBy}
+                                onChange={setSortBy}
+                            />
+                        </div>
+                    </div>
 
                 </div>
+
+
+
 
                 {/* List */}
                 <div className="mt-8 space-y-4">
@@ -113,7 +156,7 @@ const MyPlanPage = () => {
                     {currentList.length === 0 ? (
                         <EmptyState />
                     ) : (
-                        currentList.map(
+                        sortedCurrentList.map(
                             (workout) => (
                                 <MyPlanCard
                                     key={workout.id}
